@@ -35,7 +35,7 @@ export function Layout({ children }: LayoutProps) {
           </Nav>
         </Sidebar>
       </Box>
-      <Box gridArea="main" background="light-2" margin="small">
+      <Box gridArea="main" round="small" background="light-2" margin="small">
         <Main pad="large">{children}</Main>
       </Box>
     </Grid>

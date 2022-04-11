@@ -10,7 +10,7 @@ export function LoadingComponent({ isLoading }: LoaderProps) {
       justify="center"
       fill="vertical"
       animation="fadeIn"
-      background="light-4"
+      background="light-2"
       height={{ min: '200px' }}
     >
       <Spinner size="medium" />

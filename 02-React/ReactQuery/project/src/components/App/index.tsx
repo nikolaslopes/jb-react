@@ -5,7 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import { Layout } from '../Layout/index';
-import { ProductsTable } from '../../pages/ProductsTable';
+import { ProductsList } from '../../pages/ProductsList';
 
 import './styles.scss';
 
@@ -16,7 +16,7 @@ export function App() {
         <Layout>
           <RoutesWrapper>
             <Route path="/" element={<Heading>Bem vindo!</Heading>} />
-            <Route path="/products" element={<ProductsTable />} />
+            <Route path="/products" element={<ProductsList />} />
             <Route path="/products/:id" element={<h1>Products detail</h1>} />
           </RoutesWrapper>
         </Layout>
