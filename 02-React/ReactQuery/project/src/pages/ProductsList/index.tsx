@@ -27,8 +27,8 @@ export function ProductsList() {
     {
       header: 'Rating',
       property: 'rating',
-      render: (data: any) => {
-        const rate = Math.ceil(data.rating.data);
+      render: (data) => {
+        const rate = Math.ceil(data.rating.rate);
         const stars = new Array(rate)
           .fill(true)
           .map((value, index) => <Star color="status-warning" key={index} />);
@@ -40,6 +40,7 @@ export function ProductsList() {
       header: 'Stock',
       property: 'stock',
       render: (data) => {
+        console.log(data);
         return <ProductStock product={data} />;
       },
     },
