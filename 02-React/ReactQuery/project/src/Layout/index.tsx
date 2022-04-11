@@ -1,13 +1,15 @@
+import { useNavigate } from 'react-router-dom';
+import { Home, Projects } from 'grommet-icons';
 import { Avatar, Box, Button, Grid, Main, Nav, Sidebar } from 'grommet';
 
 import { LayoutProps } from './types/LayoutProps';
 
 import avatarImage from '../assets/Icons/avatar.jpg';
-import { Home, Projects } from 'grommet-icons';
-
 import './styles.scss';
 
 export function Layout({ children }: LayoutProps) {
+  const navigate = useNavigate();
+
   return (
     <Grid
       rows={['100vh']}
@@ -28,8 +30,8 @@ export function Layout({ children }: LayoutProps) {
           header={<Avatar src={avatarImage} />}
         >
           <Nav gap="small">
-            <Button icon={<Home />} />
-            <Button icon={<Projects />} />
+            <Button icon={<Home />} onClick={() => navigate('/')} />
+            <Button icon={<Projects />} onClick={() => navigate('/products')} />
           </Nav>
         </Sidebar>
       </Box>
