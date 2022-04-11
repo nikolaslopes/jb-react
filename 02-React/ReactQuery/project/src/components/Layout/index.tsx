@@ -4,7 +4,7 @@ import { Avatar, Box, Button, Grid, Main, Nav, Sidebar } from 'grommet';
 
 import { LayoutProps } from './types/LayoutProps';
 
-import avatarImage from '../assets/Icons/avatar.jpg';
+import avatarImage from '../../assets/Icons/avatar.jpg';
 import './styles.scss';
 
 export function Layout({ children }: LayoutProps) {
