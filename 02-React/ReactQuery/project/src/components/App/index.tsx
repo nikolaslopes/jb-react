@@ -4,7 +4,7 @@ import {
   Routes as RoutesWrapper,
   Route,
 } from 'react-router-dom';
-import { Layout } from '../../Layout';
+import { Layout } from '../Layout/index';
 
 import './styles.scss';
 
