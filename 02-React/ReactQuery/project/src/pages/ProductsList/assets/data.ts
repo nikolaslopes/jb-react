@@ -5,7 +5,7 @@ export const data: IProductState = {
   items: [
     {
       id: 1,
-      title: 'Produt 1',
+      title: 'Product 1',
       price: 100,
       description:
         'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem ipsa aliquid cumque repellat, voluptatum non eos placeat! Ullam in eius beatae vel, voluptatem, sint corrupti officiis perferendis aspernatur, deleniti voluptates',
