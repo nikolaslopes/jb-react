@@ -11,6 +11,8 @@ import { data } from './assets/data';
 export function ProductsList() {
   const navigate = useNavigate();
 
+  const isLoading = false;
+
   const columns: ColumnConfig<IProduct>[] = [
     {
       header: 'Id',
@@ -61,9 +63,13 @@ export function ProductsList() {
 
   return (
     <Box pad="medium">
-      <Heading>My Product List</Heading>
+      <Heading level={2}>My Product List</Heading>
 
-      <DataTable data={data?.items} columns={columns} />
+      <DataTable
+        data={data?.items}
+        columns={columns}
+        placeholder={isLoading ? <LoadingComponent isLoading /> : null}
+      />
 
       <LoadingComponent isLoading={false} />
     </Box>

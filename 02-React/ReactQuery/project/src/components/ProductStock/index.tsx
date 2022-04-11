@@ -1,4 +1,5 @@
-import { Box, Text } from 'grommet';
+import { Box, Button, Text } from 'grommet';
+import { Add, Subtract } from 'grommet-icons';
 import { ProductStockProps } from './types/ProductStockProps';
 
 export function ProductStock({ product }: ProductStockProps) {
@@ -8,8 +9,10 @@ export function ProductStock({ product }: ProductStockProps) {
   function decrement() {}
 
   return (
-    <Box>
+    <Box direction="row" align="center">
       <Text>{product.stock}</Text>
+      <Button size="small" icon={<Add size="smal" />} onClick={increment} />
+      <Button size="small" icon={<Subtract size="small" />} />
     </Box>
   );
 }
