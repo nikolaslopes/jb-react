@@ -5,7 +5,6 @@ import { Avatar, Box, Button, Grid, Main, Nav, Sidebar } from 'grommet';
 import { LayoutProps } from './types/LayoutProps';
 
 import avatarImage from '../../assets/Icons/avatar.jpg';
-import './styles.scss';
 
 export function Layout({ children }: LayoutProps) {
   const navigate = useNavigate();
@@ -30,8 +29,16 @@ export function Layout({ children }: LayoutProps) {
           header={<Avatar src={avatarImage} />}
         >
           <Nav gap="small">
-            <Button icon={<Home />} onClick={() => navigate('/')} />
-            <Button icon={<Projects />} onClick={() => navigate('/products')} />
+            <Button
+              className="button-side"
+              icon={<Home />}
+              onClick={() => navigate('/')}
+            />
+            <Button
+              className="button-side"
+              icon={<Projects />}
+              onClick={() => navigate('/products')}
+            />
           </Nav>
         </Sidebar>
       </Box>

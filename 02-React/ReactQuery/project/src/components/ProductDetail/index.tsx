@@ -14,10 +14,10 @@ export function ProductDetail() {
 
   return (
     <Box align="center" pad="xsmall">
-      <Heading>Detalhe do Produto #{id}</Heading>
+      <Heading level={2}>Detalhe do Produto #{id}</Heading>
       <Box
         width="large"
-        background="light-4"
+        background="light-1"
         round="xsmall"
         elevation="small"
         pad="medium"

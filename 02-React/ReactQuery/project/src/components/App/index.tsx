@@ -20,6 +20,7 @@ export function App() {
             <Route path="/" element={<Heading>Bem vindo!</Heading>} />
             <Route path="/products" element={<ProductsTable />} />
             <Route path="/products/:id" element={<ProductDetail />} />
+            <Route path="*" element={<h1>Not Found</h1>} />
           </RoutesWrapper>
         </Layout>
       </Grommet>

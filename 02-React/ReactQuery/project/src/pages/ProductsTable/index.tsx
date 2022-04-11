@@ -7,7 +7,7 @@ import {
   Pagination,
 } from 'grommet';
 import { Star } from 'grommet-icons';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { LoadingComponent } from '../../components/Loader';
 import { ProductStock } from '../../components/ProductStock';
@@ -18,11 +18,12 @@ import { data } from './mocks/data';
 const PER_PAGE = 6;
 export function ProductsTable() {
   const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
 
-  const page = Number(new URLSearchParams(searchParams).get('page') || 1);
+  const page = Number(new URLSearchParams(location.search).get('page') || 1);
 
   console.log(page);
+  console.log(location);
 
   const isLoading = false;
 
@@ -91,7 +92,7 @@ export function ProductsTable() {
             step={PER_PAGE}
             page={page}
             onChange={({ page }) => {
-              navigate(`/products?pages=${page}`);
+              navigate(`/products?page=${page}`, { replace: true });
             }}
           />
         </Box>
