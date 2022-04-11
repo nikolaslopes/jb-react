@@ -64,6 +64,7 @@ export function ProductsTable() {
       render: (data) => {
         return (
           <Button
+            className="button-brand"
             size="small"
             label="Detail"
             onClick={() => navigate(`/products/${data.id}`)}
