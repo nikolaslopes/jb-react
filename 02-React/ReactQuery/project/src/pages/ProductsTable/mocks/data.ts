@@ -1,7 +1,7 @@
-import { IProductState } from '../interface/IProductState';
+import { IProductState } from '../../../interfaces/IProductState';
 
 export const data: IProductState = {
-  total: 1,
+  total: 10,
   items: [
     {
       id: 1,

@@ -1,15 +1,28 @@
-import { Box, Button, ColumnConfig, DataTable, Heading } from 'grommet';
+import {
+  Box,
+  Button,
+  ColumnConfig,
+  DataTable,
+  Heading,
+  Pagination,
+} from 'grommet';
 import { Star } from 'grommet-icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { LoadingComponent } from '../../components/Loader';
 import { ProductStock } from '../../components/ProductStock';
 import { IProduct } from '../../interfaces/IProduct';
 
-import { data } from './assets/data';
+import { data } from './mocks/data';
 
-export function ProductsList() {
+const PER_PAGE = 6;
+export function ProductsTable() {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const page = Number(new URLSearchParams(searchParams).get('page') || 1);
+
+  console.log(page);
 
   const isLoading = false;
 
@@ -42,7 +55,6 @@ export function ProductsList() {
       header: 'Stock',
       property: 'stock',
       render: (data) => {
-        console.log(data);
         return <ProductStock product={data} />;
       },
     },
@@ -71,7 +83,18 @@ export function ProductsList() {
         placeholder={isLoading ? <LoadingComponent isLoading /> : null}
       />
 
-      <LoadingComponent isLoading={false} />
+      {!isLoading && (
+        <Box align="center" pad="large">
+          <Pagination
+            numberItems={data?.total}
+            step={PER_PAGE}
+            page={page}
+            onChange={({ page }) => {
+              navigate(`/products?pages=${page}`);
+            }}
+          />
+        </Box>
+      )}
     </Box>
   );
 }
