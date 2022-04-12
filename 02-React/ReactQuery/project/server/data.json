@@ -11,7 +11,7 @@
         "rate": 3.9,
         "count": 120
       },
-      "stock": 9
+      "stock": 12
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
         "rate": 4.1,
         "count": 259
       },
-      "stock": 9
+      "stock": 25
     },
     {
       "id": 3,
@@ -37,7 +37,7 @@
         "rate": 4.7,
         "count": 500
       },
-      "stock": 9
+      "stock": 16
     },
     {
       "id": 4,
@@ -50,7 +50,7 @@
         "rate": 2.1,
         "count": 430
       },
-      "stock": 11
+      "stock": 7
     },
     {
       "id": 5,

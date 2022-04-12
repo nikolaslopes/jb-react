@@ -36,15 +36,14 @@ export function ProductsTable() {
   const location = useLocation();
   const page = Number(new URLSearchParams(location.search).get('page') || '1');
 
+  const queryKey = ['products', page, PER_PAGE];
   const { data, isLoading } = useQuery<IProductsState>(
-    ['products', page, PER_PAGE],
+    queryKey,
     () => fetchProducts(page, PER_PAGE),
     {
       staleTime: 30000,
     }
   );
-  console.log(page);
-  console.log(location);
 
   const columns: ColumnConfig<IProduct>[] = [
     {
@@ -75,7 +74,8 @@ export function ProductsTable() {
       header: 'Stock',
       property: 'stock',
       render: (data) => {
-        return <ProductStock product={data} />;
+        console.log(data);
+        return <ProductStock product={data} queryKey={queryKey} />;
       },
     },
     {
