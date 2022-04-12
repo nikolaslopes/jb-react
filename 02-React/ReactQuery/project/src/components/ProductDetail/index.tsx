@@ -1,15 +1,35 @@
 import { Box, Button, Heading, Image, Text } from 'grommet';
 import { useNavigate, useParams } from 'react-router-dom';
-import { data } from './mocks/data';
+import { useQuery } from 'react-query';
+
 import { LoadingComponent } from '../Loader';
+
+import axios from 'axios';
+import { IProduct } from '../../interfaces/IProduct';
+import { modularScale } from 'polished';
+
+async function fetchProduct(id: string) {
+  const request = await axios.get(`http://localhost:3333/products/${id}`);
+
+  return request.data as IProduct;
+}
 
 export function ProductDetail() {
   const { id } = useParams<{ id: string }>();
+  const { data, isLoading } = useQuery<IProduct>(
+    ['products', id],
+    () => fetchProduct(String(id)),
+    {
+      staleTime: 10000,
+    }
+  );
+
+  console.log(isLoading);
 
   const navigate = useNavigate();
 
-  if (!data) {
-    return <LoadingComponent isLoading />;
+  if (!data || isLoading) {
+    return <LoadingComponent isSpinnerLoading />;
   }
 
   return (

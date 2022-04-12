@@ -1,8 +1,8 @@
 import { Box, Spinner } from 'grommet';
 import { LoaderProps } from './types/LoaderProps';
 
-export function LoadingComponent({ isLoading }: LoaderProps) {
-  if (!isLoading) return null;
+export function LoadingComponent({ isSpinnerLoading }: LoaderProps) {
+  if (!isSpinnerLoading) return null;
 
   return (
     <Box
