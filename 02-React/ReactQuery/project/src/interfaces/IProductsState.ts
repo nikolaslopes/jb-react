@@ -1,6 +1,6 @@
 import { IProduct } from './IProduct';
 
-export interface IProductState {
+export interface IProductsState {
   total?: number;
   items: Array<IProduct>;
 }
