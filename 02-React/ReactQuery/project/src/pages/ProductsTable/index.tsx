@@ -22,9 +22,6 @@ export function ProductsTable() {
 
   const page = Number(new URLSearchParams(location.search).get('page') || 1);
 
-  console.log(page);
-  console.log(location);
-
   const isLoading = false;
 
   const columns: ColumnConfig<IProduct>[] = [
