@@ -24,8 +24,6 @@ export function ProductDetail() {
     }
   );
 
-  console.log(isLoading);
-
   const navigate = useNavigate();
 
   if (!data || isLoading) {
