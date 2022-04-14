@@ -41,7 +41,7 @@ export function ProductsTable() {
     queryKey,
     () => fetchProducts(page, PER_PAGE),
     {
-      staleTime: 30000,
+      staleTime: 10000,
     }
   );
 
