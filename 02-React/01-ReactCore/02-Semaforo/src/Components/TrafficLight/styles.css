@@ -1,3 +1,45 @@
-main {
+.main {
+  background-color: #888;
+  width: 80px;
+  height: 200px;
+  border-radius: 8px;
+  padding: 20px;
+}
 
+.content {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  cursor: pointer;
+}
+
+.red {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.yellow {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: yellow;
+}
+
+.green {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: green;
+}
+
+:is(.red, .yellow, .green):hover {
+  transition: all 0.2s ease;
+  opacity: 0.6;
 }
