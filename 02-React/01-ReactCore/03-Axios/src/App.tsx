@@ -1,9 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import { Api } from './services/api'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  async function getTodos() {
+    const request = await Api.get('todos')
+
+    return request
+  }
+
+  useEffect(() => {
+    getTodos().then(({ data }) => console.log(data))
+  }, [])
 
   return (
     <div className="App">
