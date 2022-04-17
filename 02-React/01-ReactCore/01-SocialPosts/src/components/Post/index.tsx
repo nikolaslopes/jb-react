@@ -1,34 +1,51 @@
 import { useState } from 'react'
 import './styles.css'
 
-export function Post() {
+type PostProps = {
+  avatarUrl: string
+  userName: string
+  userRole: string
+  userPostContent: string
+}
+
+export function Post({
+  avatarUrl,
+  userName = 'Not informet',
+  userRole = 'Not informed',
+  userPostContent = '0 posts',
+}: PostProps) {
   const [liked, setLiked] = useState(false)
+
+  function like() {
+    setLiked(true)
+  }
+
+  function deslike() {
+    setLiked(false)
+  }
 
   return (
     <div className="post">
       <section className="title">
-        <img
-          src="https://i.pinimg.com/originals/50/42/bb/5042bb3770d6a47b3cdbec7a55d109cb.jpg"
-          alt="User Photo"
-        />
+        <img src={avatarUrl} alt="User Photo" />
         <div className="name-job">
-          <p>Nix</p>
-          <small>Full-stack Developer</small>
+          <p>{userName}</p>
+          <small>{userRole}</small>
         </div>
       </section>
 
-      <p>I like React :)</p>
+      <p>{userPostContent}</p>
       <section className="actions">
         {liked ? (
           <svg
+            onClick={deslike}
             xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-heart"
             width="44"
             height="44"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             fill="#ff5e95"
-            stroke="#2c3e50"
+            stroke="#ff5e95"
             stroke-linecap="round"
             stroke-linejoin="round"
           >
@@ -37,8 +54,8 @@ export function Post() {
           </svg>
         ) : (
           <svg
+            onClick={like}
             xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-heart"
             width="44"
             height="44"
             viewBox="0 0 24 24"
