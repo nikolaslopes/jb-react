@@ -18,11 +18,11 @@ export function TrafficLight() {
 
   return (
     <main>
-      <div className="main">
+      <div className="container">
         <div className="content">
-          <div className="red" onClick={handleRedLightClick}></div>
-          <div className="yellow" onClick={handleYellowLightClick}></div>
-          <div className="green" onClick={handleGreenLightClick}></div>
+          <button className="red" onClick={handleRedLightClick}></button>
+          <button className="yellow" onClick={handleYellowLightClick}></button>
+          <button className="green" onClick={handleGreenLightClick}></button>
         </div>
       </div>
 
