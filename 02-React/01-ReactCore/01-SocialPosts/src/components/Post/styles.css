@@ -21,7 +21,6 @@ section.title img {
 
 section.title .name-job {
   display: flex;
-  align-items: center;
   flex-direction: column;
 
   margin-left: 20px;
