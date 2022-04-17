@@ -14,7 +14,7 @@ main {
   margin-bottom: 30px;
 }
 
-.content {
+.container > .content {
   width: 100%;
   height: 100%;
 
@@ -24,7 +24,7 @@ main {
   justify-content: space-between;
 }
 
-button {
+.content > button {
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -52,4 +52,9 @@ button:active {
 
 .green {
   background-color: green;
+}
+
+.content > button.selected {
+  width: 52px;
+  height: 52px;
 }
