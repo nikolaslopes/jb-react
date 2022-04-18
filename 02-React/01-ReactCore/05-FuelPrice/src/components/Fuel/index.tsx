@@ -1,3 +1,5 @@
+import { Title } from './styles'
+
 export function Fuel() {
-  return <h1>FUEL</h1>
+  return <Title>Posto React JS</Title>
 }
