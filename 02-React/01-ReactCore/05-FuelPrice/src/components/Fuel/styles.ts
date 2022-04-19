@@ -38,7 +38,6 @@ export const Panel = styled.section`
   height: 500px;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.colorGrey100};
-
   position: relative;
   left: calc(100vw - 350px);
   margin-top: 60px;
@@ -61,4 +60,16 @@ export const Row = styled.div`
 
   justify-content: space-around;
   padding-top: 15px;
+`
+
+export const FuelText = styled.span`
+  color: ${({ theme }) => theme.colorWhite};
+  font-size: 1.5rem;
+  font-weight: bold;
+`
+
+export const FuelPrice = styled.span`
+  font-family: 'Digital-7 Mono', sans-serif;
+  color: ${({ theme }) => theme.colorYellow600};
+  font-size: 3.5rem;
 `

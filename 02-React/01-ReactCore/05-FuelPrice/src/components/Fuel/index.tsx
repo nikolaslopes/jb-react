@@ -1,4 +1,13 @@
-import { Container, Title, SettingsIcon, Panel, Box, Row } from './styles'
+import {
+  Container,
+  Title,
+  SettingsIcon,
+  Panel,
+  Box,
+  Row,
+  FuelText,
+  FuelPrice,
+} from './styles'
 
 export function Fuel() {
   return (
@@ -7,11 +16,40 @@ export function Fuel() {
       <SettingsIcon />
       <Panel>
         <Row>
-          <Box>a</Box>
-          <Box>a</Box>
+          <Box>
+            <FuelText>a</FuelText>
+          </Box>
+          <Box>
+            <FuelPrice>b</FuelPrice>
+          </Box>
         </Row>
-        <Box>a</Box>
-        <Box>a</Box>
+
+        <Row>
+          <Box>
+            <FuelText>a</FuelText>
+          </Box>
+          <Box>
+            <FuelPrice>b</FuelPrice>
+          </Box>
+        </Row>
+
+        <Row>
+          <Box>
+            <FuelText>b</FuelText>
+          </Box>
+          <Box>
+            <FuelPrice>4.59</FuelPrice>
+          </Box>
+        </Row>
+
+        <Row>
+          <Box>
+            <FuelText>a</FuelText>
+          </Box>
+          <Box>
+            <FuelPrice>b</FuelPrice>
+          </Box>
+        </Row>
       </Panel>
     </Container>
   )
