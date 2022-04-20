@@ -1,3 +1,4 @@
+import { getFuel } from './services'
 import {
   Container,
   Title,
@@ -10,6 +11,8 @@ import {
 } from './styles'
 
 export function Fuel() {
+  getFuel()
+
   return (
     <Container>
       <Title>Posto React JS</Title>
