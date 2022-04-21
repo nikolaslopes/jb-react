@@ -4,6 +4,10 @@ export interface IFuel {
   price: number
 }
 
+export interface IFuelState extends IFuel {
+  updated: boolean
+}
+
 export type FuelProps = {
   editMode: boolean
   toggleEditMode: () => void

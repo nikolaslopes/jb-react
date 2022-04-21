@@ -45,6 +45,11 @@ export function Fuel({ editMode, toggleEditMode }: FuelProps) {
     setFuels(updatedFuels)
   }
 
+  function onSave() {
+    // * obter combustiveis com valores alterados
+    // * atualizar esses combustíveis na API
+  }
+
   return (
     <Container>
       <Title>Posto React JS</Title>
