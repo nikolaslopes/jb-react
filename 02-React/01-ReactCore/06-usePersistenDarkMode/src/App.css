@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+
+button {
+  font-size: calc(10px + 2vmin);
+
+  margin-top: 20px;
+}
