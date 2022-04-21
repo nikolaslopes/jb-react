@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { FiEdit, FiEdit2 } from 'react-icons/fi'
+import { FiEdit2 } from 'react-icons/fi'
 
-import { getFuel } from './services'
+import { getFuel, updatedFuel } from './services'
 import {
   Container,
   Title,
@@ -20,8 +20,6 @@ import { FuelProps, IFuelState } from './types'
 
 export function Fuel({ editMode, toggleEditMode }: FuelProps) {
   const [fuels, setFuels] = useState<IFuelState[]>()
-
-  console.log(fuels)
 
   async function fetchAndUpdateData() {
     const data = await getFuel()
@@ -46,11 +44,25 @@ export function Fuel({ editMode, toggleEditMode }: FuelProps) {
     setFuels(updatedFuels)
   }
 
-  function onSave() {
+  async function onSave() {
     // * obter combustiveis com valores alterados
     const changed = fuels?.filter((fuel) => fuel.updated === true)
 
+    if (!changed) {
+      toggleEditMode()
+      console.log('no changes')
+      return
+    }
+
     // * atualizar esses combustíveis na API
+    for (const changedFuel of changed) {
+      const { updated, ...rest } = changedFuel
+
+      await updatedFuel(rest)
+    }
+
+    fetchAndUpdateData()
+    toggleEditMode()
   }
 
   return (
@@ -93,7 +105,7 @@ export function Fuel({ editMode, toggleEditMode }: FuelProps) {
 
         {editMode && (
           <Row>
-            <SaveButton>
+            <SaveButton onClick={onSave}>
               <SaveIcon />
               Salvar
             </SaveButton>
