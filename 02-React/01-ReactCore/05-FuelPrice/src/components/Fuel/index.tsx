@@ -24,6 +24,7 @@ export function Fuel({ editMode, toggleEditMode }: FuelProps) {
   async function fetchAndUpdateData() {
     const data = await getFuel()
 
+    console.log('nss')
     setFuels(data)
   }
 
@@ -45,16 +46,17 @@ export function Fuel({ editMode, toggleEditMode }: FuelProps) {
   }
 
   async function onSave() {
-    // * obter combustiveis com valores alterados
+    // * get fuel with changed values
+    // ! filter returns a void array in all false cases
     const changed = fuels?.filter((fuel) => fuel.updated === true)
 
-    if (!changed) {
+    if (!changed || changed.length === 0) {
       toggleEditMode()
       console.log('no changes')
       return
     }
 
-    // * atualizar esses combustíveis na API
+    // * update this fuels on api
     for (const changedFuel of changed) {
       const { updated, ...rest } = changedFuel
 
