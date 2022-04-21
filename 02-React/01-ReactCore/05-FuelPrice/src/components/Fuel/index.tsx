@@ -11,50 +11,38 @@ import {
   FuelText,
   FuelPrice,
 } from './styles'
+import { IFuel } from './types'
 
 export function Fuel() {
-  const [fuels, setFuels] = useState()
+  const [fuels, setFuels] = useState<IFuel[]>()
+
+  async function fetchAndUpdateData() {
+    const data = await getFuel()
+
+    setFuels(data)
+    console.log(data)
+  }
+
+  useEffect(() => {
+    fetchAndUpdateData()
+  }, [])
 
   return (
     <Container>
       <Title>Posto React JS</Title>
       <SettingsIcon />
+
       <Panel>
-        <Row>
-          <Box>
-            <FuelText>a</FuelText>
-          </Box>
-          <Box>
-            <FuelPrice>b</FuelPrice>
-          </Box>
-        </Row>
-
-        <Row>
-          <Box>
-            <FuelText>a</FuelText>
-          </Box>
-          <Box>
-            <FuelPrice>b</FuelPrice>
-          </Box>
-        </Row>
-
-        <Row>
-          <Box>
-            <FuelText>b</FuelText>
-          </Box>
-          <Box>
-            <FuelPrice>4.59</FuelPrice>
-          </Box>
-        </Row>
-
-        <Row>
-          <Box>
-            <FuelText>a</FuelText>
-          </Box>
-          <Box>
-            <FuelPrice>b</FuelPrice>
-          </Box>
-        </Row>
+        {fuels?.map((fuel) => (
+          <Row key={fuel.id}>
+            <Box>
+              <FuelText>{fuel.name}</FuelText>
+            </Box>
+            <Box>
+              <FuelPrice>{fuel.price}</FuelPrice>
+            </Box>
+          </Row>
+        ))}
       </Panel>
     </Container>
   )
