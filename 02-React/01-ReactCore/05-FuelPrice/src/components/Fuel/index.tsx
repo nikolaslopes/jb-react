@@ -16,10 +16,10 @@ import {
   SaveIcon,
   FuelInput,
 } from './styles'
-import { FuelProps, IFuel } from './types'
+import { FuelProps, IFuelState } from './types'
 
 export function Fuel({ editMode, toggleEditMode }: FuelProps) {
-  const [fuels, setFuels] = useState<IFuel[]>()
+  const [fuels, setFuels] = useState<IFuelState[]>()
 
   console.log(fuels)
 
@@ -37,6 +37,7 @@ export function Fuel({ editMode, toggleEditMode }: FuelProps) {
     const updatedFuels = fuels?.map((fuel) => {
       if (fuel.id === fuelId) {
         fuel.price = Number(price)
+        fuel.updated = true
       }
 
       return fuel
@@ -47,6 +48,8 @@ export function Fuel({ editMode, toggleEditMode }: FuelProps) {
 
   function onSave() {
     // * obter combustiveis com valores alterados
+    const changed = fuels?.filter((fuel) => fuel.updated === true)
+
     // * atualizar esses combustíveis na API
   }
 
