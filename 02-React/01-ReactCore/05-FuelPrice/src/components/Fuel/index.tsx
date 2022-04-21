@@ -14,22 +14,36 @@ import {
   InfoText,
   SaveButton,
   SaveIcon,
+  FuelInput,
 } from './styles'
 import { FuelProps, IFuel } from './types'
 
 export function Fuel({ editMode, toggleEditMode }: FuelProps) {
   const [fuels, setFuels] = useState<IFuel[]>()
 
+  console.log(fuels)
+
   async function fetchAndUpdateData() {
     const data = await getFuel()
 
     setFuels(data)
-    console.log(data)
   }
 
   useEffect(() => {
     fetchAndUpdateData()
   }, [])
+
+  function onUpdatePrice(fuelId: number, price: string) {
+    const updatedFuels = fuels?.map((fuel) => {
+      if (fuel.id === fuelId) {
+        fuel.price = Number(price)
+      }
+
+      return fuel
+    })
+
+    setFuels(updatedFuels)
+  }
 
   return (
     <Container>
@@ -53,7 +67,18 @@ export function Fuel({ editMode, toggleEditMode }: FuelProps) {
               <FuelText>{fuel.name}</FuelText>
             </Box>
             <Box>
-              <FuelPrice>{fuel.price}</FuelPrice>
+              {editMode ? (
+                <FuelInput
+                  type="number"
+                  value={fuel.price}
+                  onChange={(event) =>
+                    onUpdatePrice(fuel.id, event.target.value)
+                  }
+                  maxLength={5}
+                />
+              ) : (
+                <FuelPrice>{fuel.price}</FuelPrice>
+              )}
             </Box>
           </Row>
         ))}
