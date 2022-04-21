@@ -25,7 +25,6 @@ export function Fuel({ editMode, toggleEditMode }: FuelProps) {
   async function fetchAndUpdateData() {
     const data = await getFuel()
 
-    console.log('nss')
     setFuels(data)
   }
   useEffect(() => {
