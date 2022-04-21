@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { FiEdit, FiEdit2 } from 'react-icons/fi'
 
 import { getFuel } from './services'
 import {
@@ -10,6 +11,9 @@ import {
   Row,
   FuelText,
   FuelPrice,
+  InfoText,
+  SaveButton,
+  SaveIcon,
 } from './styles'
 import { FuelProps, IFuel } from './types'
 
@@ -31,11 +35,18 @@ export function Fuel({ editMode, toggleEditMode }: FuelProps) {
     <Container>
       <Title>Posto React JS</Title>
 
-      {editMode && <h2>readt</h2>}
-
       <SettingsIcon onClick={toggleEditMode} />
 
       <Panel>
+        {editMode && (
+          <Row>
+            <InfoText>
+              <FiEdit2 />
+              Altere o preço do item e salve
+            </InfoText>
+          </Row>
+        )}
+
         {fuels?.map((fuel) => (
           <Row key={fuel.id}>
             <Box>
@@ -46,6 +57,15 @@ export function Fuel({ editMode, toggleEditMode }: FuelProps) {
             </Box>
           </Row>
         ))}
+
+        {editMode && (
+          <Row>
+            <SaveButton>
+              <SaveIcon />
+              Salvar
+            </SaveButton>
+          </Row>
+        )}
       </Panel>
     </Container>
   )

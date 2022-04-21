@@ -10,4 +10,8 @@ export const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Roboto', sans-serif;
   }
+
+  button {
+    cursor: pointer;
+  }
 `

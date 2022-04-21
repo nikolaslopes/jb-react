@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import imageGasStation from '../../assets/images/gas-station.jpg'
-import { FiSettings } from 'react-icons/fi'
+import { FiSave, FiSettings } from 'react-icons/fi'
 
 export const Container = styled.div`
   background: url(${imageGasStation});
@@ -72,4 +72,41 @@ export const FuelPrice = styled.span`
   font-family: 'Digital-7 Mono', sans-serif;
   color: ${({ theme }) => theme.colorYellow600};
   font-size: 3.5rem;
+`
+
+export const InfoText = styled.span`
+  color: ${({ theme }) => theme.colorWhite};
+  font-size: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const SaveButton = styled.button`
+  background-color: ${({ theme }) => theme.colorBlue200};
+  border: none;
+  color: ${({ theme }) => theme.colorWhite};
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+
+  transition: all 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    filter: brightness(0.7);
+  }
+`
+
+export const SaveIcon = styled(FiSave)`
+  color: ${({ theme }) => theme.colorWhite};
+  font-size: 32px;
+  margin-right: 10px;
 `
