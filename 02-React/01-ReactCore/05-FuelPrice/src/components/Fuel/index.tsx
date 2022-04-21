@@ -11,9 +11,9 @@ import {
   FuelText,
   FuelPrice,
 } from './styles'
-import { IFuel } from './types'
+import { FuelProps, IFuel } from './types'
 
-export function Fuel() {
+export function Fuel({ editMode, toggleEditMode }: FuelProps) {
   const [fuels, setFuels] = useState<IFuel[]>()
 
   async function fetchAndUpdateData() {
@@ -30,7 +30,10 @@ export function Fuel() {
   return (
     <Container>
       <Title>Posto React JS</Title>
-      <SettingsIcon />
+
+      {editMode && <h2>readt</h2>}
+
+      <SettingsIcon onClick={toggleEditMode} />
 
       <Panel>
         {fuels?.map((fuel) => (
