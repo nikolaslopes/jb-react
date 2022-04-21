@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import { getFuel } from './services'
 import {
   Container,
@@ -11,7 +13,7 @@ import {
 } from './styles'
 
 export function Fuel() {
-  getFuel()
+  const [fuels, setFuels] = useState()
 
   return (
     <Container>
