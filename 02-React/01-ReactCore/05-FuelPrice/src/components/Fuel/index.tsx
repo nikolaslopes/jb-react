@@ -18,6 +18,7 @@ import {
 } from './styles'
 import { FuelProps, IFuelState } from './types'
 
+const TIME_TO_UPDATE_MS = 1000
 export function Fuel({ editMode, toggleEditMode }: FuelProps) {
   const [fuels, setFuels] = useState<IFuelState[]>()
 
@@ -27,10 +28,25 @@ export function Fuel({ editMode, toggleEditMode }: FuelProps) {
     console.log('nss')
     setFuels(data)
   }
+  useEffect(() => {
+    fetchAndUpdateData()
+  }, [])
 
   useEffect(() => {
     fetchAndUpdateData()
   }, [])
+
+  useEffect(() => {
+    if (editMode) return
+
+    const myInterval = setInterval(() => {
+      fetchAndUpdateData()
+    }, TIME_TO_UPDATE_MS)
+
+    return () => {
+      clearInterval(myInterval)
+    }
+  }, [editMode])
 
   function onUpdatePrice(fuelId: number, price: string) {
     const updatedFuels = fuels?.map((fuel) => {
