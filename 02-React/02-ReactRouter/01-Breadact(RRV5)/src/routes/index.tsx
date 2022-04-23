@@ -7,13 +7,9 @@ export function Routes() {
         <Redirect to="/production" />
       </Route>
 
-      <Route exact path="/production">
-        Produção
-      </Route>
+      <Route path="/production">Produção</Route>
 
-      <Route exact path="/stock">
-        Estoque
-      </Route>
+      <Route path="/stock">Estoque</Route>
     </Switch>
   )
 }
