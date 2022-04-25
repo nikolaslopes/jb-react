@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { GlobalStyles } from './assets/styles/global'
 import { Navbar } from './components/Navbar'
+import { Production } from './components/Production'
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Navigate to="/production" />} />
-        <Route path="/production" element={<h1>Prod</h1>} />
+        <Route path="/production" element={<Production />} />
         <Route path="/stock" element={<h1>stock</h1>} />
       </Routes>
     </BrowserRouter>

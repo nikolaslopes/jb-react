@@ -1,11 +1,20 @@
-import { Outlet } from 'react-router-dom'
 import data from '../../assets/data.json'
-import { ProductContainer, ProductImage, ProductsContainer } from './styles'
 
-export const Production = () => {
+import { Header, Container, ProductContent, ProductImage } from './styles'
+
+export function Production() {
   return (
-    <div>
-      <h3>O que você vai fabricar hoje?</h3>
-    </div>
+    <>
+      <Header>O que você vai fabricar hoje?</Header>
+
+      <Container>
+        {data.products.map((product) => (
+          <ProductContent key={product.id}>
+            <ProductImage src={product.image} />
+            <h4>{product.name}</h4>
+          </ProductContent>
+        ))}
+      </Container>
+    </>
   )
 }

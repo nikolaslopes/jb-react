@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 export const Container = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ export const Container = styled.div`
   height: 60px;
   background-color: #f7f3e3;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-`;
+`
 
 export const Link = styled(NavLink)`
   text-decoration: none;
@@ -22,4 +22,4 @@ export const Link = styled(NavLink)`
     border-bottom-style: solid;
     border-bottom-color: #af9164;
   }
-`;
+`
