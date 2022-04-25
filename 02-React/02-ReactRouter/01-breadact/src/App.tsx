@@ -10,7 +10,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Navigate to="/production" />} />
-        <Route path="/production" element={<Production />} />
+        <Route path="/production/" element={<Production />}>
+          <Route path=":selectedProduct" />
+        </Route>
         <Route path="/stock" element={<h1>stock</h1>} />
       </Routes>
     </BrowserRouter>
