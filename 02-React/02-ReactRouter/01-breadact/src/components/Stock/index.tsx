@@ -12,9 +12,6 @@ export function Stock() {
 
   const showStock = queryParam.get('showStock') === 'true'
 
-  console.log('a', queryParam)
-  console.log('b', showStock)
-
   function toggleShowStock() {
     navigate(`?showStock=${!showStock}`, { replace: true })
   }
