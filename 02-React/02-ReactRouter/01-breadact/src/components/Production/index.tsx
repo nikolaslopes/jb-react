@@ -1,4 +1,10 @@
-import { useNavigate, useParams } from 'react-router-dom'
+import {
+  useNavigate,
+  useParams,
+  Outlet,
+  generatePath,
+  useLocation,
+} from 'react-router-dom'
 import data from '../../assets/data.json'
 
 import { Header, Container, ProductContent, ProductImage } from './styles'
@@ -8,15 +14,20 @@ export function Production() {
   const { selectedProduct } = useParams<ParamsType>()
   const navigate = useNavigate()
 
+  const location = useLocation()
+
   const selected = data.products.find(
     (product) => product.id.toString() === selectedProduct
   )
 
   function goToProduct(id: number) {
-    navigate(`/production/${id}`)
-  }
+    const urlToGo = generatePath(location.pathname, {
+      selectedProduct: id.toString(),
+    })
 
-  console.log(selectedProduct)
+    navigate(urlToGo)
+    console.log(urlToGo)
+  }
 
   return (
     <>
