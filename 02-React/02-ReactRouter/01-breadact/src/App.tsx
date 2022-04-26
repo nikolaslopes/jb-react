@@ -17,8 +17,9 @@ function App() {
 
         <Route path="/" element={<Navigate to="/production" />} />
 
-        <Route path="/production/" element={<Production />}>
-          <Route path=":selectedProduct" />
+        <Route path="/production">
+          <Route element={<Production />} index />
+          <Route path=":selectedProduct" element={<Production />} />
         </Route>
 
         <Route

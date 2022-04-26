@@ -9,7 +9,6 @@ export function Stock() {
   const navigate = useNavigate()
 
   const queryParam = new URLSearchParams(location.search)
-
   const showStock = queryParam.get('showStock') === 'true'
 
   function toggleShowStock() {

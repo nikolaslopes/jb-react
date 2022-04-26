@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Header = styled.h3`
   margin-top: 20px;
@@ -14,10 +15,11 @@ export const Container = styled.div`
   padding: 20px;
 `
 
-export const ProductContent = styled.div`
+export const ProductContent = styled(Link)`
   padding-top: 30px;
-
+  text-decoration: none;
   cursor: pointer;
+  color: #1a1a1a;
 `
 
 export const ProductImage = styled.img`
