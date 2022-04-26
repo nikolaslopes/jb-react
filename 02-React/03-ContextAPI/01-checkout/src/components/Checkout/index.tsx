@@ -1,5 +1,5 @@
 import { Total } from '../Total'
-import { Container, Title } from './styled'
+import { Container, Header, Title } from './styled'
 
 type CheckoutProps = {
   userName: string
@@ -8,6 +8,7 @@ type CheckoutProps = {
 export function Checkout({ userName }: CheckoutProps) {
   return (
     <Container>
+      <Header>Seja bem vindo, {userName}</Header>
       <Title>Checkout</Title>
 
       <Total userName={userName} />
