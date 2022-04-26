@@ -11,5 +11,6 @@ export const GlobalStyles = createGlobalStyle`
     background-color: #282c34;
     min-height: 100vh;
     font-family: 'Fira Code', sans-serif;
+    color: #fefefe;
   }
 `
