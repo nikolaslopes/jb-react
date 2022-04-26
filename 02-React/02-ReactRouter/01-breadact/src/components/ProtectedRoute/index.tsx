@@ -1,4 +1,4 @@
-import { RouteProps, Route, Navigate, Routes } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 export function ProtectedRoute(props: { children: JSX.Element }) {
   const token = localStorage.getItem('token')
