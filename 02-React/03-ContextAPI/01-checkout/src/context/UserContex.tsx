@@ -12,7 +12,7 @@ type UserProviderProps = {
 
 export function UserProvier({ children }: UserProviderProps) {
   const [user, setUser] = useState({
-    name: 'Nicks',
+    name: 'Nick',
   })
 
   return <UserContext.Provider value={user}>{children}</UserContext.Provider>

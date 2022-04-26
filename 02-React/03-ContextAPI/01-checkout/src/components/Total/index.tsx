@@ -1,11 +1,7 @@
 import { TotalMessage } from '../TotalMessage'
 import { Container, Message, Row, TotalValue } from './styled'
 
-type TotalProps = {
-  userName: string
-}
-
-export function Total({ userName }: TotalProps) {
+export function Total() {
   return (
     <Container>
       <Row>
@@ -13,7 +9,7 @@ export function Total({ userName }: TotalProps) {
         <TotalValue>R$ 100</TotalValue>
       </Row>
 
-      <TotalMessage userName={userName} />
+      <TotalMessage />
     </Container>
   )
 }

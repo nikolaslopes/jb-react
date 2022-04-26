@@ -2,11 +2,7 @@ import { useUser } from '../../context/UserContex'
 import { Total } from '../Total'
 import { Container, Header, Title } from './styled'
 
-type CheckoutProps = {
-  userName: string
-}
-
-export function Checkout({ userName }: CheckoutProps) {
+export function Checkout() {
   const user = useUser()
 
   return (
@@ -14,7 +10,7 @@ export function Checkout({ userName }: CheckoutProps) {
       <Header>Seja bem vindo, {user?.name}</Header>
       <Title>Checkout</Title>
 
-      <Total userName={userName} />
+      <Total />
     </Container>
   )
 }
