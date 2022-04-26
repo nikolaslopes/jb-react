@@ -5,6 +5,7 @@ import { Navbar } from './components/Navbar'
 import { NotFound } from './components/NotFound'
 import { Production } from './components/Production'
 import { ProtectedRoute } from './components/ProtectedRoute'
+import { Recipe } from './components/Recipe'
 import { Stock } from './components/Stock'
 
 function App() {
@@ -17,9 +18,8 @@ function App() {
 
         <Route path="/" element={<Navigate to="/production" />} />
 
-        <Route path="/production">
-          <Route element={<Production />} index />
-          <Route path=":selectedProduct" element={<Production />} />
+        <Route path="/production" element={<Production />}>
+          <Route path=":productId" element={<Recipe />} />
         </Route>
 
         <Route

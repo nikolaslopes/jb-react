@@ -1,3 +1,3 @@
 export type ParamsType = {
-  selectedProduct: string
+  productId: string
 }
