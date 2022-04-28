@@ -17,6 +17,14 @@ export function UserProvier({ children }: UserProviderProps) {
   })
 
   function updateUserName(name: string) {
+    if (name === 'Niko') {
+      setUser({
+        name: `YOU CAN'T USE THIS NAME`,
+      })
+
+      return
+    }
+
     setUser({
       name: name,
     })
