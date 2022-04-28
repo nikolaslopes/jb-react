@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from 'react'
 
 interface IUserContext {
   name: string
+  updateUserName(name: string): void
 }
 
 const UserContext = createContext<IUserContext | undefined>(undefined)
@@ -15,7 +16,17 @@ export function UserProvier({ children }: UserProviderProps) {
     name: 'Nick',
   })
 
-  return <UserContext.Provider value={user}>{children}</UserContext.Provider>
+  function updateUserName(name: string) {
+    setUser({
+      name: name,
+    })
+  }
+
+  return (
+    <UserContext.Provider value={{ ...user, updateUserName }}>
+      {children}
+    </UserContext.Provider>
+  )
 }
 
 export function useUser() {
