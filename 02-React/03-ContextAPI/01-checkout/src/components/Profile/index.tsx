@@ -38,6 +38,18 @@ export function Profile() {
       >
         Atualizar token
       </button>
+
+      <span>Increment: {user?.state.totalClicks}</span>
+
+      <button
+        onClick={() =>
+          user?.dispatch({
+            type: 'increment_clicks',
+          })
+        }
+      >
+        Click to increment
+      </button>
     </Container>
   )
 }

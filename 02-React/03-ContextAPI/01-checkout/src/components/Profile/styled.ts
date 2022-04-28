@@ -1,15 +1,21 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  height: 200px;
+  height: 400px;
   display: flex;
   flex-direction: column;
+
+  padding: 22px;
 
   justify-content: space-around;
 
   button {
     width: 16rem;
     height: 2.5rem;
+  }
+
+  span {
+    padding-top: 32px;
   }
 `
 

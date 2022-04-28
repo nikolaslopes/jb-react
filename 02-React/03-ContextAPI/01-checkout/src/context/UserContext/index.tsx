@@ -35,5 +35,11 @@ export function UserProvier({ children }: UserProviderProps) {
 export function useUser() {
   const context = useContext(UserContext)
 
+  if (context === undefined) {
+    throw new Error(
+      'Ops, você esqueceu de colocar o provider por volta da App!'
+    )
+  }
+
   return context
 }
