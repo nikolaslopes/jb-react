@@ -4,7 +4,7 @@ export type ReducerAction =
   | { type: 'update_id'; newID: string }
   | { type: 'update_token'; newToken: string }
 
-export const initialState = {
+export const initialState: ReducerState = {
   name: '',
   id: '',
   token: '',
