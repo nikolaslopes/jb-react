@@ -6,8 +6,8 @@ export function Profile() {
 
   return (
     <Container>
-      <Message></Message>
       <InputName
+        placeholder="Seu nome"
         value={user?.state.name}
         onChange={(event) => {
           user?.dispatch({
@@ -16,6 +16,28 @@ export function Profile() {
           })
         }}
       />
+      <Message>ID: {user?.state.id}</Message>
+      <Message>Token: {user?.state.token}</Message>
+      <button
+        onClick={() => {
+          user?.dispatch({
+            type: 'update_token',
+            newToken: String(
+              `KLX_UPT_N_OSP_EW_A2-${Math.ceil(Math.random() * 10000)}`
+            ),
+          })
+          user?.dispatch({
+            type: 'update_id',
+            newID: String(
+              `${user.state.name.toLowerCase()}_${Math.round(
+                Math.random() * 100
+              )}`
+            ),
+          })
+        }}
+      >
+        Atualizar token
+      </button>
     </Container>
   )
 }
