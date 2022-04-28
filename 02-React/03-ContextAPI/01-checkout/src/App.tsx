@@ -2,13 +2,17 @@ import { GlobalStyles } from './assets/styles/global'
 import { Checkout } from './components/Checkout'
 import { Profile } from './components/Profile'
 
+import { UserProvier } from './context/UserContext'
+
 function App() {
   return (
-    <>
-      <GlobalStyles />
-      <Checkout />
-      <Profile />
-    </>
+    <UserProvier>
+      <>
+        <GlobalStyles />
+        <Checkout />
+        <Profile />
+      </>
+    </UserProvier>
   )
 }
 

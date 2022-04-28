@@ -1,5 +1,10 @@
 import { createContext, useContext, useState, useReducer } from 'react'
-import { ReducerAction, ReducerState, userReducer } from './reducer'
+import {
+  initialState,
+  ReducerAction,
+  ReducerState,
+  userReducer,
+} from './reducer'
 
 interface IUserContext {
   state: ReducerState
@@ -13,7 +18,7 @@ type UserProviderProps = {
 }
 
 export function UserProvier({ children }: UserProviderProps) {
-  const [state, dispatch] = useReducer(userReducer, { name: '', id: '' })
+  const [state, dispatch] = useReducer(userReducer, initialState)
 
   return (
     <UserContext.Provider

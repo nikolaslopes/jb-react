@@ -1,12 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import { UserProvier } from './context/UserContex'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <UserProvier>
-      <App />
-    </UserProvier>
+    <App />
   </React.StrictMode>
 )

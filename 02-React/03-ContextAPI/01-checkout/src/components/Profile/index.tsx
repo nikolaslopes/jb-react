@@ -1,4 +1,4 @@
-import { useUser } from '../../context/UserContex'
+import { useUser } from '../../context/UserContext'
 import { Container, InputName, Message } from './styled'
 
 export function Profile() {
@@ -8,9 +8,12 @@ export function Profile() {
     <Container>
       <Message></Message>
       <InputName
-        value={user?.name}
+        value={user?.state.name}
         onChange={(event) => {
-          user?.updateUserName(event.target.value)
+          user?.dispatch({
+            type: 'update_name',
+            newName: event.target.value,
+          })
         }}
       />
     </Container>
