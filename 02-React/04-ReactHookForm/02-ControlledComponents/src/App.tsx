@@ -21,7 +21,7 @@ function App() {
           <input
             type="text"
             name="name"
-            placeholder="Type your name"
+            placeholder="jType your name"
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
