@@ -20,6 +20,15 @@ export const FormGroup = styled.div`
     outline: none;
     font-size: 18px;
     color: #2c2b3c;
+
+    &.error {
+      border: 2px solid red;
+      transition: 1s ease-out;
+    }
+
+    &::placeholder {
+      font-size: 12px;
+    }
   }
 
   label {
