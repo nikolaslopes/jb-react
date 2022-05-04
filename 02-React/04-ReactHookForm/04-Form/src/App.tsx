@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
-import { Title, FormGroup } from './components/styles'
+import { Title, FormGroup, SubmitButton } from './components/styles'
 
 import ReactInputMask from 'react-input-mask'
 
@@ -15,18 +15,24 @@ function App() {
       <form>
         <FormGroup>
           <label htmlFor="name">Nome</label>
-          <input type="text" name="name" />
+          <input type="text" name="name" placeholder="Insira o nome" />
         </FormGroup>
 
         <FormGroup>
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" />
+          <label htmlFor="email">E-mail</label>
+          <input type="email" name="email" placeholder="Insira o e-mail" />
         </FormGroup>
 
         <FormGroup>
           <label htmlFor="cpf">CPF</label>
-          <ReactInputMask name="cpf" mask="999.999.999-999" />
+          <ReactInputMask
+            name="cpf"
+            mask="999.999.999-999"
+            placeholder="Insira o CPF"
+          />
         </FormGroup>
+
+        <SubmitButton>Enviar</SubmitButton>
       </form>
     </div>
   )
