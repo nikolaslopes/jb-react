@@ -23,12 +23,13 @@ function App() {
     <div className="App">
       <Title>Complete seus dados</Title>
 
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
+      <form onSubmit={handleSubmit(onSubmitHandler)} noValidate>
         <FormGroup>
           <label htmlFor="name">Nome</label>
           <input
             type="text"
             placeholder="Insira o nome"
+            className={formState.errors.name ? 'error' : ''}
             {...register('name', { required: true })}
           />
         </FormGroup>
@@ -38,6 +39,7 @@ function App() {
           <input
             type="email"
             placeholder="Insira o e-mail"
+            className={formState.errors.email ? 'error' : ''}
             {...register('email', { required: true })}
           />
         </FormGroup>
@@ -47,13 +49,14 @@ function App() {
           <Controller
             name="cpf"
             control={control}
-            defaultValue=""
+            defaultValue="aa"
             render={({ field }) => {
               return (
                 <ReactInputMask
                   mask="999.999.999-999"
                   placeholder="Insira o CPF"
-                  {...register('cpf')}
+                  className={formState.errors.cpf ? 'error' : ''}
+                  {...register('cpf', { required: true })}
                   {...field}
                 />
               )

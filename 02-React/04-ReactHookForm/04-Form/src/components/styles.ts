@@ -20,10 +20,10 @@ export const FormGroup = styled.div`
     outline: none;
     font-size: 18px;
     color: #2c2b3c;
+    transition: all 0.2s ease-out;
 
     &.error {
-      border: 2px solid red;
-      transition: 1s ease-out;
+      border-color: red;
     }
 
     &::placeholder {
